@@ -1,0 +1,136 @@
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table style="margin-top: 15px" class="table table-primary">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Content</th>
+          <th scope="col">Author</th>
+          <th scope="col">Date</th>
+          <th scope="col">Update Post</th>
+          <th scope="col">Delete Post</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="" *ngFor="let i of post">
+          <td scope="row">{{ i.id }}</td>
+          <td>{{ i.title }}</td>
+          <td>{{ i.content }}</td>
+          <td>{{ i.author }}</td>
+          <td>{{ i.date }}</td>
+
+          <td>
+            <a
+              name=""
+              id=""
+              class="btn btn-outline-success me-4"
+              onclick="window.location.reload()"
+              role="button"
+              (click)="editPost(i.id, i)"
+              >Update</a
+            >
+          </td>
+          <td>
+            <a
+              style="margin-right: 5px"
+              name=""
+              id=""
+              class="btn btn-outline-danger me-4"
+              onclick="window.location.reload()"
+              role="button"
+              (click)="deletePost(i.id)"
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container" [formGroup]="postForm" (ngSubmit)="Add()">
+  <form>
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">ID</label>
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="id"
+          formControlName="id"
+          id="id"
+          placeholder="Id"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">Title</label>
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          formControlName="title"
+          id="title"
+          placeholder="Title"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">Content</label>
+      <div class="col-8">
+        <textarea
+          class="form-control"
+          formControlName="content"
+          name="content"
+          id="content"
+          rows="3"
+          placeholder="Give Good Content Here..."
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">Author</label>
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="author"
+          formControlName="author"
+          id="author"
+          placeholder="Author Name Please..."
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">Date</label>
+      <div class="col-8">
+        <input
+          type="date"
+          class="form-control"
+          name="date"
+          formControlName="date"
+          id="date"
+          placeholder="Date"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <div class="offset-sm-4 col-sm-8">
+        <button
+          type="submit"
+          onclick="window.location.reload()"
+          class="btn btn-outline-success btn-lg btn-block"
+        >
+          Add Post
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
