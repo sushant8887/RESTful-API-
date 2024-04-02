@@ -1,0 +1,50 @@
+This documentation provides guidelines on setting up and using the RESTful API for managing blog posts.
+
+//** Setup **//
+Installation
+
+Before using the API, ensure you have Node.js and npm installed on your system. Then, follow these steps:
+    npm install express mongoose bootstrap cors 
+
+
+//** Project Structure **//
+
+    RESTFUL API/
+├── Backend/
+│  └── controllers/
+│       └── BlogControllers.js
+│  └── models/
+│       └── BlogModels.js
+│  └──routing/
+│       └── BlogRouting.js   
+├── app.js
+
+
+
+//** Usage **//
+Now, you can use the following endpoints to interact with the API:
+
+[1] Add a Post
+URL:/posts/addPost
+Method: POST
+Request Body: JSON object containing post data (title, content, author, creation date)
+
+[2] Update a Post
+URL: /posts/update/:id
+Method: PUT
+Request Parameters: Post ID
+Request Body: JSON object containing post data to update (title, content, author)
+
+[3]Delete a Post
+URL: /posts/delete/:id
+Method: DELETE
+Request Parameters: Post ID
+
+[4]Show All Posts
+URL: /posts/showAll
+Method: GET
+
+[5]Find a Post by ID
+URL: /posts/show/:id
+Method: GET
+Request Parameters: Post ID
